@@ -41,16 +41,16 @@ function buildCharts(sample) {
 
     // Build a Bubble Chart
     let bubbleLayout = {
-      title: 'Bubble Chart',
+      title: 'Bacteria Cultures Per Sample',
       xaxis: {
-        title: 'OTU IDs'
+        title: 'OTU ID'
       },
       yaxis: {
         title: 'Sample Values'
       },
       showlegend: false,
-      height: 800,
-      width: 800
+      height: 600,
+      width: 1000
     };
 
     // Render the Bubble Chart
@@ -75,26 +75,26 @@ function buildCharts(sample) {
     // Build a Bar Chart
     // Don't forget to slice and reverse the input data appropriately
     let barData = [{
-      x: sampleValues,
+      x: sampleValues.slice(0, 10).reverse(),
       y: y_ticks,
       type: 'bar',
       orientation: "h",
       marker: {
         size: sampleValues,
         color: otuIds,
-        colorscale: 'Earth',
-        opacity: 0.6
+        color: 'Light Blue',
+        opacity: 0.8
       },
       text: otuLabels
     }];
 
     // Render the Bar Chart
     let barLayout = {
-      title: 'Bar Chart',
-      x_axis: {
-        title: 'OTU IDs'
+      title: 'Top 10 Bacteria Cultures Found',
+      xaxis: {
+        title: 'Number of Bacteria'
       },
-      y_axis: {
+      yaxis: {
         title: 'Sample Values'
       },
       showlegend: false,
